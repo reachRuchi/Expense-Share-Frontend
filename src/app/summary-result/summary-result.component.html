@@ -1,0 +1,25 @@
+<!-- <p>
+  {{summary | json}}
+</p> -->
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Event Name</th>
+      <th>Person Name</th>
+      <th>Total Amount Spent</th>
+      <th>Amount Owed</th>
+      <th>Amount Lend</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor = "let s of summary">
+      <td>{{s?.event?.eventName}}</td>
+      <td>{{s?.friend?.name}}</td>
+      <td>{{s?.event?.totalAmountSpent}}</td>
+      <td>{{s?.amountOwed}}</td>
+      <td>{{s?.amountLend}}</td>
+    </tr>
+   
+  </tbody>
+</table>

@@ -1,0 +1,27 @@
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<div class = "col-md-4"></div>
+<div class = "col-md-6">
+  <form [formGroup] = "summaryForm" (ngSubmit)="onSubmit()">
+
+      <div class="form-group col-md-6">
+          <label for = "eventName">Event Name: </label>&nbsp;
+          <input type = "text" name = "eventName" class="form-control" formControlName = "eventName"  placeholder = "Event Name">	
+      </div>
+
+      <div class = "form-group col-md-6">
+          <label for = "totalAmountSpent">Total amount spent: </label>&nbsp;
+          <input type = "number" name = "totalAmountSpent" class="form-control" formControlName = "totalAmountSpent"  placeholder = "Total Amount Spent">	
+    </div>
+      &nbsp;&nbsp;&nbsp;&nbsp;<label>Friends List</label>&nbsp;
+      <div class = "form-check col-md-6" *ngFor="let f of friends; let i = index">
+           <label for = "friend">{{ f?.name }}</label>&nbsp;
+           &nbsp;<input  classs="form-check-input" type="checkbox" formControlName="friend" >&nbsp;&nbsp;&nbsp;&nbsp;
+          <input   type = "radio" name = "{{i}}" value = "lend" (click) = "selectedFriend(f,'lend')">&nbsp;&nbsp;Lend&nbsp;&nbsp;
+          <input  type = "radio" name = "{{i}}" value = "owe"  (click) = "selectedFriend(f,'owe')">&nbsp;&nbsp;Owe    
+      </div>
+      <div class = "form-group col-md-6">
+          <button class="btn btn-primary" type="submit" >Submit</button>
+      </div>
+  </form>
+</div>
+<!-- <app-summary-result [summary]="summary"></app-summary-result> -->

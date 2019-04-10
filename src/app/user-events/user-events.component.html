@@ -1,0 +1,50 @@
+<!-- <p>
+  Owed<br/>
+  {{owedSummary| json}}
+  <br/>Lend<br/>
+  {{lendSummary| json}}
+</p> -->
+<!-- Owed Table -->
+<br/><br/>
+<h3  style = "color: red">{{name}} Owe's Summary</h3>
+<br/><br/>
+<table class="table">
+    <thead>
+      <tr>
+        <th>Event Name</th>
+        <th>Amount Owed</th>
+        <th>Settle Up</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor = "let o of owedSummary">
+        <td>{{o?.event?.eventName}}</td>
+        <td>{{o?.amountOwed}}</td>
+        <td><button type = "button" class = "btn btn-primary" *ngIf = "!o.settledUp" (click) = "settleUp(o)">Pay!</button>
+        <button type = "button" class = "btn btn-success disabled" *ngIf = "o.settledUp">Paid!</button></td>
+      </tr>
+     
+    </tbody>
+    <!-- Lend Table -->
+    <br/><br/>
+    <h3 style = "color: aquamarine">{{name}} Settle Summary</h3>
+    <br/><br/>
+    <thead>
+        <tr>
+          <th>Event Name</th>
+          <th>Amount Lend</th>
+          <th>Amount Owed</th>
+          <th>Settle Up</th>
+        </tr>
+        <tr  *ngFor = "let l of lendSummary">
+            <td>{{l?.event?.eventName}}</td>
+            <td>{{l?.amountLend}}</td>
+            <td>{{l?.amountOwed}}</td>
+            <td><p *ngIf = "!l.settledUp" style="color:red">Not Settled Yet</p>
+            <p *ngIf = "l.settledUp" style = "color: seagreen">Settled</p></td>
+        </tr>
+    </thead>
+    <tbody>
+       
+    </tbody>
+  </table>
